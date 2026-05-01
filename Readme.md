@@ -70,37 +70,54 @@ The platform supports two AI backends:
 ```
 scam_platform/
 │
+├── admin/                      # Admin restricted pages
+│   ├── analytics.php           # Visual data charts (Chart.js)
+│   ├── claims.php              # Shop ownership claim management
+│   ├── dashboard.php           # Platform overview & moderation queue
+│   ├── moderate.php            # Report review & approval
+│   ├── settings.php            # Risk score algorithm weights
+│   └── shops.php               # Shop database management
+│
+├── api/                        # Public & internal JSON endpoints
+│   ├── ai_detect.php           # AI scam analysis endpoint
+│   └── check_url.php           # Public risk check API
+│
+├── auth/                       # Authentication & security
+│   ├── change_password.php     # User security settings
+│   ├── forgot_password.php     # Password reset request
+│   ├── login.php               # Sign in
+│   ├── logout.php              # Sign out
+│   ├── register.php            # New user signup
+│   └── reset_password.php      # Set new password via token
+│
 ├── database/
-│   └── schema.sql              # Full DB schema with seed data — import this first
+│   └── scam_db.sql             # Full DB schema with tables and seed data
 │
 ├── includes/
-│   ├── db.php                  # PDO connection, app constants, AI config
-│   ├── functions.php           # Risk scoring, AI detection, helpers, utilities
-│   ├── header.php              # Shared HTML head, nav, flash messages
-│   └── footer.php              # Shared footer
-│
-├── auth/
-│   ├── login.php               # Login form + session creation
-│   ├── register.php            # Registration with validation
-│   └── logout.php              # Session destroy + redirect
-│
-├── shops/
-│   ├── search.php              # Shop listing with filters and sort
-│   └── view.php                # Shop detail: risk gauge, reviews, reports
+│   ├── db.example.php          # Database configuration template
+│   ├── db.php                  # Active DB connection & constants
+│   ├── footer.php              # Shared footer
+│   ├── functions.php           # Core logic, risk scoring, AI integration
+│   └── header.php              # Navigation, auth checks, UI head
 │
 ├── reports/
-│   └── submit.php              # Report form with file upload + AI trigger
+│   └── submit.php              # Scam reporting form
 │
-├── admin/
-│   ├── dashboard.php           # Platform stats + pending queue preview
-│   ├── moderate.php            # Full moderation queue (approve/reject)
-│   └── shops.php               # Add/delete shops
+├── shops/
+│   ├── claim.php               # Ownership verification form
+│   ├── search.php              # Directory search & filters
+│   └── view.php                # Shop profile & reviews
 │
-├── api/
-│   └── ai_detect.php           # JSON endpoint for standalone AI analysis
+├── user/
+│   └── profile.php             # Personal dashboard & activity tracking
 │
-└── assets/
-    └── uploads/                # Uploaded evidence files (images/PDFs)
+├── assets/
+│   └── uploads/                # User-submitted evidence (images/PDFs)
+│
+├── index.php                   # Homepage
+├── leaderboard.php             # Community contributor rankings
+├── notifications.php           # In-app user alerts
+└── faq.php, terms.php, etc.    # Static information pages
 ```
 
 ---
