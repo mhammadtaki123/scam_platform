@@ -15,7 +15,7 @@ assets/uploads/*
 .vscode/
 
 CLAUDE.md
-database/scam_db.sql
+database/*
 
 # OS Generated Files
 .DS_Store?
